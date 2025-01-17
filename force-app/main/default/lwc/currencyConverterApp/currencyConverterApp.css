@@ -1,0 +1,75 @@
+:host(){
+    --yellow: #f9ba49;
+    --dark-blue: #0c2451;
+    --light-blue: #1b96ff;
+    --orange: #fb8500;
+    --font-16: 16px;
+    --font-12: 12px;
+    --font-24: 24px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: var(--font-16);
+}
+
+.custom-card{
+    max-width: 520px;
+    background: var(--dark-blue);
+    border-radius: var(--font-24);
+    min-width: 370px;
+    padding: var(--font-16);
+}
+
+.custom-button, .custom-button:hover, .custom-button:active{
+    background: var(--yellow);
+    color: var(--dark-blue);
+    padding: var(--font-12);
+    font-size: var(--font-24);
+    margin-top: var(--font-12);
+}
+
+/*
+SLDS styling hooks are used to customize component styling, these provide CSS custom properties that correspond to SLDS
+component blueprints and design variations, as of now we can not create/write custom hooks, we can only us the ones provided
+to us in the documentation of the component.
+*/
+
+.custom-icon{
+    --slds-c-icon-color-foreground-default: var(--yellow);
+    --slds-c-icon-color-foreground: var(--dark-blue);
+    --slds-c-icon-color-background: var(--yellow);
+    transform: rotate(45deg);
+}
+
+.baseline{
+    align-items: baseline;
+}
+
+.currency-app{
+    background: url(/sfsites/c/resource/currencyConverterAssets/currencyConverterAssets/currencyAppBackground.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.result{
+    font-size: var(--font-24);
+    margin-bottom: var(--font-24);
+    font-weight: bold;
+    color: var(--light-blue);
+}
+
+.result-to{
+    color: var(--orange);
+}
+
+img{
+    height: 250px;
+    width: 250px;
+    display: block;
+    margin: auto;
+}

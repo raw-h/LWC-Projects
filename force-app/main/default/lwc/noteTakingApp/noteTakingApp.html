@@ -1,10 +1,11 @@
 <template>
     <div class="app">
-        <div class="box box-center">
+        <div class="box box-center" onclick={createNoteHandler}>
             <div class="dotted-circle">
-                <lightning-icon icon-name="'utility:add" alternative-text="add" size="large" class="custom-icon"
+                <lightning-icon icon-name="utility:add" alternative-text="add" size="large" class="custom-icon"
                 title="add"></lightning-icon>
             </div>
+            <h2>Add New Note</h2>
         </div>
 
         <div class="box slds-var-m-bottom_medium">
@@ -14,7 +15,7 @@
             <div class="notes">
                 Desc text will come here
             </div>
-            <footer>
+            <footer class="footer">
                 <div>Tue Jan 19 2025</div>
                 <div>
                     <lightning-icon icon-name="action:edit" alternative-text="edit"
@@ -25,4 +26,28 @@
             </footer>
         </div>
     </div>
+
+    <template if:true={showModal}>
+        <c-modal>
+            <h1 slot="header" class="slds-modal__title">Modal Heading</h1>
+            <form>
+                <lightning-input type="text" label="Title" name="Name" class="slds-m-bottom_medium"
+                value={noteRecord.Name} onchange={changeHandler}>
+                </lightning-input>
+
+                <lightning-input-rich-text
+                value={noteRecord.Note_Description__c}
+                name="Note_Description__c"
+                label="Description"
+                label-visible
+                formats={formats}
+                onchange={changeHandler}>
+                </lightning-input-rich-text>
+            </form>
+            <footer slot="footer">
+                <button class="slds-button slds-button_neutral" onclick={closeModalHandler}>Cancel</button>
+                <button class="slds-button slds-button_brand" onclick={formSubmitHandler} disabled={isFormInvalid}>Save</button>
+            </footer>
+        </c-modal>
+    </template>
 </template>

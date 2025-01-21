@@ -1,5 +1,6 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, wire } from 'lwc';
 import createNoteRecord from '@salesforce/apex/NoteTakingHandler.createNoteRecord';
+import getNotes from '@salesforce/apex/NoteTakingHandler.getNotes';
 const DEFAULT_NOTE_FORM = {
     Name: "",
     Note_Description__c: ""
@@ -8,6 +9,7 @@ const DEFAULT_NOTE_FORM = {
 export default class NoteTakingApp extends LightningElement {
     showModal = false;
     noteRecord = DEFAULT_NOTE_FORM;
+    noteList = [];
     formats = [
         'font',
         'size',
@@ -61,6 +63,19 @@ export default class NoteTakingApp extends LightningElement {
         const elem = this.template.querySelector('c-notifiction');
         if(elem){
             elem.showToast(message, variant);
+        }
+    }
+
+    @wire(getNotes)
+    noteListInfo({data, error}){
+        if(data){
+            this.noteList = data.map(item => {
+                let formattedDate = new Date(item.LastModifiedDate).toDateString();
+                return {...item, formattedDate};
+            })
+        }
+        if(error){
+            this.showToastMsg(error.message.body, 'error');
         }
     }
 }

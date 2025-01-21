@@ -12,4 +12,10 @@ public with sharing class NoteTakingHandler {
             throw new AuraHandledException(e.getMessage());
         }
     }
+
+    // Here along with AuraEnabled we have also used cacheable true, because we want to use this method withn wire in our JS file.
+    @AuraEnabled(cacheable = true)
+    public static List<My_Note__c> getNotes(){
+        return [SELECT Id, Name, Note_Description__c, LastModifiedDate from My_Note__c order by LastModifiedDate];
+    }
 }

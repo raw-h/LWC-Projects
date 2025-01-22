@@ -18,4 +18,20 @@ public with sharing class NoteTakingHandler {
     public static List<My_Note__c> getNotes(){
         return [SELECT Id, Name, Note_Description__c, LastModifiedDate from My_Note__c order by LastModifiedDate];
     }
+
+    @AuraEnabled
+    public static Boolean updateNoteRecord(String noteId, String title, String description){
+        try {
+            if(!String.isBlank(noteId)){
+                Ny_Note__c note = [SELECT Id, Name, Note_Description__c, LastModifiedDate from Ny_Note__C WHERE Id =:noteId];
+                note.Name = title;
+                note.Note_Description__c = description;
+                update note;
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
 }

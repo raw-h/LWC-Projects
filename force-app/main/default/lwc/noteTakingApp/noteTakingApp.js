@@ -96,7 +96,7 @@ export default class NoteTakingApp extends LightningElement {
 
     editNoteHandler(event) {
         const { recordid } = event.target.dataset;
-        const noteRecord = this.noteList.find(item => item.Id === recordId);
+        const noteRecord = this.noteList.find(item => item.Id === recordid);
         this.noteRecord = {
             Name: noteRecord.Name,
             Note_Description__c: noteRecord.Note_Description__c
@@ -106,7 +106,7 @@ export default class NoteTakingApp extends LightningElement {
     }
 
     updateNote(noteId) {
-        const [Name, Note_Description__c] = this.noteRecord;
+        const {Name, Note_Description__c} = this.noteRecord;
         updateNoteRecord({ noteId, title: Name, description: Note_Description__c }).then(() => {
             this.showModal = false;
             this.showToastMsg("Note Updated Successfully!!", 'success');

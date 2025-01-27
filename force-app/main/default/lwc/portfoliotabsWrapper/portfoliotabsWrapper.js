@@ -1,3 +1,6 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, api } from 'lwc';
 
-export default class PortfoliotabsWrapper extends LightningElement {}
+export default class PortfoliotabsWrapper extends LightningElement {
+    @api recordId;
+    @api objectApiName;
+}

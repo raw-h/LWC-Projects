@@ -29,11 +29,11 @@
                                 </div>
                             </div>
                             <p class="slds-m-horizontal_xx-small">
-                                {work.CompanyName}, {work.workLocation}
+                                {work.CompanyName}, {work.WorkLocation}
                             </p>
                             <article class="slds-box slds-timeline__item_details slds-theme_shade slds-m-top_x-small slds-m-horizontal_xx-small slds-p-around_medium" id="task-item-expanded-69">
                                 <div>
-                                    {work.Description}
+                                    <c-portfolio-string-to-html content={work.Description}></c-portfolio-string-to-html>
                                 </div>
                             </article>
                         </div>

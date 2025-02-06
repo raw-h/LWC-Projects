@@ -1,3 +1,5 @@
 import { LightningElement, wire, api } from 'lwc';
-
-export default class PortfolioSkills extends LightningElement {}
+import { getRecord } from 'lightning/uiRecordApi';
+export default class PortfolioSkills extends LightningElement { 
+    @api recordId;
+}

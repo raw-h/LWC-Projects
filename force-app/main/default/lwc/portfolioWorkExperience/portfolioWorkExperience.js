@@ -17,10 +17,8 @@ export default class PortfolioWorkExperience extends LightningElement {
         ]
     }) WorkExperienceHandler({ data, error }) {
         if (data) {
-            console.log("Work Experience Data", JSON.stringify(data));
             this.formatExperience(data);
         } else if (error) {
-            console.log("Error = ", error);
         }
     }
 
@@ -39,8 +37,6 @@ export default class PortfolioWorkExperience extends LightningElement {
 
             return { id, JobStartDate, JobEndDate, CompanyName, WorkLocation, Description, IsCurrent, Role };
         })
-
-        console.log("WorkExperienceList = ", JSON.stringify(this.workExperienceList));
     }
 
     getValue(data) {

@@ -14,7 +14,8 @@ export default class PortfolioWorkExperience extends LightningElement {
             'WorkExperience__c.WorkLocation__c',
             'WorkExperience__c.Description__c',
             'WorkExperience__c.IsCurrent__c'
-        ]
+        ],
+        sortBy: ['WorkExperience__c.JobStartDate__c']
     }) WorkExperienceHandler({ data, error }) {
         if (data) {
             this.formatExperience(data);

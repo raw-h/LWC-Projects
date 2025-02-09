@@ -26,7 +26,7 @@ export default class PortfolioEducation extends LightningElement {
     }
 
     formatData(data){
-        this.tableData = data.records.map(item=>{
+        this.tableData = [...data.records].reverse().map(item=>{
             let Id = item.id;
             const {InstituionName__c, PassingYear__c, Title__c} = item.fields;
             let Education = Title__c.value;

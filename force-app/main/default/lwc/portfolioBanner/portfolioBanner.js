@@ -5,6 +5,7 @@ import FULLNAME from '@salesforce/schema/Portfolio__c.FullName__c';
 import COMPANY_NAME from '@salesforce/schema/Portfolio__c.CompanyName__c';
 import COMPANY_LOCATION from '@salesforce/schema/Portfolio__c.CompanyLocation__c';
 import DESIGNATION from '@salesforce/schema/Portfolio__c.Designation__c';
+import hackerrankImg from '@salesforce/resourceUrl/hackerrankImg';
 
 export default class PortfolioBanner extends LightningElement {
 
@@ -23,7 +24,7 @@ export default class PortfolioBanner extends LightningElement {
     github = `${PortfolioAssets}/PortfolioAssets/Social/github.svg`;
     twitter = `${PortfolioAssets}/PortfolioAssets/Social/twitter.svg`;
     trailhead = `${PortfolioAssets}/PortfolioAssets/Social/trailhead1.svg`;
-    hackerrank = `${PortfolioAssets}/PortfolioAssets/Social/hackerrank.svg`;
+    hackerrank = hackerrankImg;
 
 
     get fullName() {

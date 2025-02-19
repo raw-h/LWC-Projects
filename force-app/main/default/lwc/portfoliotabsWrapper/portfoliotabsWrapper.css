@@ -10,7 +10,7 @@
     display: none;
 }
 
-@media (min-width:400px) {
+@media (max-width:1100px) {
     .show-tabs-on-desktop-view{
         display: none;
     }

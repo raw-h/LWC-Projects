@@ -20,4 +20,17 @@ export default class HelloWorld extends LightningElement {
         this.address.city = event.target.value;
         this.userList[0] = event.target.value;
     }
+
+    fN = "Shubham";
+
+    get firstName(){
+        return this.fN;
+    }
+
+    num1 = 10;
+    num2 = 20;
+
+    get multiplication(){
+        return this.num1 * this.num2;
+    }
 }

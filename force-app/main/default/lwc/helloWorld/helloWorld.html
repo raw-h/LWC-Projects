@@ -1,9 +1,16 @@
 <template>
+    <!-- Data binding -->
     <input type="text" onkeyup={changeHandler}>
     <div>Hey there my name is {fullName} and currently I am a {title}.</div>
 
+    <!-- Track Decorator -->
     <lightning-card  title="@track Properties">
         <input type="text" onkeyup={trackHandler}>
         <div>Hey there my name is {fullName} and I live in {address.city}.</div>
     </lightning-card>
+
+    <!-- Getter Example -->
+    <div>{firstName}</div>
+    <div>{multiplication}</div>
+    
 </template>

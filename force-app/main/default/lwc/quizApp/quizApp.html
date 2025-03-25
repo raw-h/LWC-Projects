@@ -4,43 +4,37 @@
             <form>
                 <template for:each={myQuestions} for:item="quizQuestion">
                     <div key={quizQuestion.id} class="slds-m-around_small">
-                    <div>
-                        <strong>{quizQuestion.id} - {quizQuestion.question}</strong>
-                        <div class="slds-grid slds-gutters slds-m-bottom_small">
-                            <div class="slds-col">
-                                <input type="radio" name={quizQuestion.id} value="a" onchange={changeHandler}>
-                                {quizQuestion.answers.a}
-                            </div>
-                            <div class="slds-col">
-                                <input type="radio" name={quizQuestion.id} value="b" onchange={changeHandler}>
-                                {quizQuestion.answers.b}
-                            </div>
-                            <div class="slds-col">
-                                <input type="radio" name={quizQuestion.id} value="c" onchange={changeHandler}>
-                                {quizQuestion.answers.c}
+                        <div>
+                            <strong>{quizQuestion.id} - {quizQuestion.question}</strong>
+                            <div class="slds-grid slds-gutters slds-m-bottom_small">
+                                <div class="slds-col">
+                                    <input type="radio" name={quizQuestion.id} value="a" onchange={changeHandler}>
+                                        {quizQuestion.answers.a}
+                                </div>
+                                <div class="slds-col">
+                                    <input type="radio" name={quizQuestion.id} value="b" onchange={changeHandler}>
+                                        {quizQuestion.answers.b}
+                                </div>
+                                <div class="slds-col">
+                                    <input type="radio" name={quizQuestion.id} value="c" onchange={changeHandler}>
+                                    {quizQuestion.answers.c}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </template>
-            <lightning-button
-            variant="brand"
-            type="submit"
-            label="Submit"
-            title="Submit Quiz"
-            onclick={submitHandler}
-            class="slds-m-around_small">
-            </lightning-button>
+                </template>
 
-            <lightning-button
-            variant="brand"
-            type="submit"
-            label="Reset"
-            title="Reset Quiz"
-            onclick={resetHandler}
-            class="slds-m-around_small">
-            </lightning-button>
-        </form>
+                <lightning-button variant="brand" type="submit" label="Submit" title="Submit Quiz" onclick={submitHandler} disabled={submitDisable} class="slds-m-around_small"></lightning-button>
+
+                <lightning-button variant="brand" type="reset" label="Reset" title="Reset Quiz" onclick={resetHandler} class="slds-m-around_small"></lightning-button>
+            </form>
+
+            <template if:true={isSubmitted}>
+                <lightning-card class="slds-padding-m_around">
+                    <div class={isScoredFull}>You have scored {correctAnswers} out of {myQuestions.length}</div>
+                </lightning-card>
+            </template>
+
         </div>
     </lightning-card>
 </template>

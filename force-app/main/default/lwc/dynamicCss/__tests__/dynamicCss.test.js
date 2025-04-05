@@ -1,4 +1,4 @@
-import { createElement } from 'lwc';
+import { createElement } from '@lwc';
 import DynamicCss from 'c/dynamicCss';
 
 describe('c-dynamic-css', () => {
